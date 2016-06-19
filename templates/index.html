@@ -6,12 +6,18 @@
 <body>
 <h1>This is header 1</h1>
 {% for post in posts %}
-<article>{{post.id}} - {{post.title}} - {{post.content}}</article>
+
+<!-- <a href="/posts/{{post.id}}/">{{post.title}}</a><br> -->
+
+<!-- <a href='{% url "detail"  post_id=post.id %}'>{{post.title}}</a><br> -->
+<a href='{{ post.get_absolute_url }}'>{{post.title}}</a><br>
+
+{{post.content}}<br>
+{{post.timestamp}}<br>
+{{post.updated}}<br>
+{{post.id}}<br>
+<br>
 {%endfor%}
 
-<form class="del" action="index.html" method="post">
-	<input type="text" name="id" placeholder="type the post id to de deleted">
-	<input type="button" name="del_button" value="delete">
-</form>
 </body>
 </html>
