@@ -4,10 +4,8 @@
 	<title></title>
 </head>
 <body>
-
 <form method="POST" action=""> {% csrf_token%}
-Title: {{form.title}}<br>
-Content: {{form.content}}<br>
+{{ form.as_p }}
 <input type="submit" value="create">
 </form>
 

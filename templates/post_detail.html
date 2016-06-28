@@ -5,11 +5,20 @@
 </head>
 <body>
 
+{% if messages %}
+	{% for i in messages %}
+		<li {% if i.tags %} class="{{i.tags}}"{% endif%}>{{i}}</li>
+	{% endfor%}
+{% endif%}
+
 {{post.title}}<br>
 {{post.content}}<br>
 {{post.timestamp}}<br>
 {{post.updated}}<br>
 {{post.id}}<br>
+
+
+<a href='{% url "posts:delete"  post_id=post.id %}'>delete</a>
 
 
 </body>
